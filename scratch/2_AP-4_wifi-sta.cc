@@ -3,7 +3,16 @@
 * Network topology:
 *   
 *  
-*(STA)n1<---* N0 (Ap )*----*n1(Ap)*----->  n3(STA) 
+*                CSMA Link 
+
+      AP1-----------------------------AP2
+ 
+   /      \                          /      \
+ 
+  /        \                        /        \    
+
+ n1      n2                        n3        n4
+
 *
 * We report the total throughput received during a window of 100ms.
 * The user can specify the application data rate and choose the variant
