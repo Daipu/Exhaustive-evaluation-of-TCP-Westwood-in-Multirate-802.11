@@ -16,10 +16,10 @@ we implemented below topology model in 2_AP-4_wifi-sta.cc
 
                  CSMA Link   
    
-      AP1-----------------------------AP2  
-    /    \                          /   \                     
-   /      \                        /     \                   
-  n1      n2                     n3       n4     
+       AP1-----------------------------AP2  
+      /    \                          /   \                     
+     /      \                        /     \                   
+    n1      n2                     n3       n4     
    
  
  where AP1 and AP2 are wifi devices and n1, n2, n3, n4 are station devices
