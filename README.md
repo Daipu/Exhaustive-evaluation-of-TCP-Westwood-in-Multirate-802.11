@@ -27,6 +27,7 @@ we implemented below topology model in 2_AP-4_wifi-sta.cc
 ### TCP Westwood can be executed as
  
 ./waf --run "scratch/2_AP-4_wifi-sta --wifiManager=Aarf --tcpVariant=TcpWestwood" --vis
+we can assign any value from these (Aarf, Aarfcd, Amrr, Arf, Cara, Ideal, Minstrel, Onoe, Rraa) value to --wifiManager argument.
 
 ### If you want a graph between Throughput and time Then use this command  
 
