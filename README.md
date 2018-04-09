@@ -38,7 +38,7 @@ When we do pcap=true then we get a pcap file in Exhaustive-evaluation-of-TCP-Wes
 
 plot "file_name.plotme" using 1:2 title "Base" with line 
 
-that will give us a plot between throughput ann time.that gives a graph between throughput and time.
+that will give us a plot/graph between throughput and time.
 
 
 # References
