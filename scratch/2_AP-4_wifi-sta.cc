@@ -64,7 +64,7 @@ main (int argc, char *argv[])
   std::string tcpVariant = "TcpVeno";             /* TCP variant type. */                    /* Physical layer bitrate. */
   std::string wifiManager ("Arf");
   double simulationTime = 10;                        /* Simulation time in seconds. */
-  bool pcapTracing = true;                          /* PCAP Tracing is enabled or not. */
+  bool pcapTracing = false;                          /* PCAP Tracing is enabled or not. */
 
   /* Command line argument parser setup. */
   CommandLine cmd;
@@ -74,7 +74,7 @@ main (int argc, char *argv[])
                 "TcpHybla, TcpHighSpeed, TcpHtcp, TcpVegas, TcpScalable, TcpVeno, "
                 "TcpBic, TcpYeah, TcpIllinois, TcpWestwood, TcpWestwoodPlus, TcpLedbat ", tcpVariant);
   cmd.AddValue ("simulationTime", "Simulation time in seconds", simulationTime);
-  cmd.AddValue ("pcap", "Enable/disable PCAP Tracing", pcapTracing);
+  cmd.AddValue ("pcap", "Enable/disable PCAP Tracing (true, false)", pcapTracing);
   cmd.AddValue ("wifiManager", "Set wifi rate manager (Aarf, Aarfcd, Amrr, Arf, Cara, Ideal, Minstrel, Onoe, Rraa)", wifiManager);
   cmd.Parse (argc, argv);
 
@@ -183,12 +183,12 @@ main (int argc, char *argv[])
   staDevices4 = wifiHelper.Install (wifiPhy, wifiMac, staWifiNode4);
 
   /* Mobility model */
-  MobilityHelper mobility1, mobility2, mobility3;
+  MobilityHelper mobility1, mobility2;
 
   Ptr<ListPositionAllocator> positionAlloc = CreateObject<ListPositionAllocator> ();
-  positionAlloc->Add (Vector (100, 60,   20));
+  /*positionAlloc->Add (Vector (100, 60,   20));
   positionAlloc->Add (Vector (150, 60,   20));
-  mobility1.SetPositionAllocator (positionAlloc);
+  mobility1.SetPositionAllocator (positionAlloc);*/
 
 
 
@@ -202,13 +202,16 @@ main (int argc, char *argv[])
 
   mobility1.SetMobilityModel ("ns3::ConstantPositionMobilityModel");
   mobility1.Install (apWifiNode1);
+      
 
   mobility1.SetMobilityModel ("ns3::RandomWalk2dMobilityModel",
                                  "Mode", StringValue ("Time"),
                                  "Time", StringValue ("2s"),
-                                 "Speed", StringValue ("ns3::ConstantRandomVariable[Constant=3.0]"),
+                                 "Speed", StringValue ("ns3::ConstantRandomVariable[Constant=10.0]"),
                                  "Bounds", RectangleValue (Rectangle (-100, 100, -100, 100 )));
   mobility1.Install (staWifiNode1);
+  mobility1.Install (staWifiNode2);
+   
 
   mobility2.SetPositionAllocator ("ns3::GridPositionAllocator",
                                      "MinX", DoubleValue (50.0),
@@ -232,10 +235,9 @@ main (int argc, char *argv[])
    mobility2.SetMobilityModel ("ns3::RandomWalk2dMobilityModel",
                                  "Mode", StringValue ("Time"),
                                  "Time", StringValue ("2s"),
-                                 "Speed", StringValue ("ns3::ConstantRandomVariable[Constant=3.0]"),
+                                 "Speed", StringValue ("ns3::ConstantRandomVariable[Constant=10.0]"),
                                  "Bounds", RectangleValue (Rectangle (-100, 100, -100, 100)));
 
-   mobility1.Install (staWifiNode2);
    
    mobility2.Install (staWifiNode3);
    mobility2.Install (staWifiNode4);
