@@ -24,7 +24,7 @@ we implemented below topology model in 2_AP-4_wifi-sta.cc
  
  where AP1 and AP2 are wifi devices and n1, n2, n3, n4 are station devices
 
-### For TCP Westwood should be executed as
+### TCP Westwood can be executed as
  
 ./waf --run "scratch/2_AP-4_wifi-sta --wifiManager=Aarf --tcpVariant=TcpWestwood" --vis
 
