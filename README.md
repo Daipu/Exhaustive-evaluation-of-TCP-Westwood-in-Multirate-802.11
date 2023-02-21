@@ -157,3 +157,9 @@ that will give us a plot/graph between throughput and time.
 
 [2] Naeem Khademi, Michael Welzl, and Renato Lo Cigno. TCP Westwood: End-to-End Congestion Control for Wired/Wireless Networks  
 
+URL::
+for Minstrel
+https://blog.cerowrt.org/papers/minstrel-sigcomm-final.pdf
+for ONOE:
+http://web.cs.wpi.edu/~rek/Adv_Nets/Papers/RateAdaptSurvey.pdf
+
